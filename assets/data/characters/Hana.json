@@ -1,0 +1,47 @@
+{
+    "name": "Hana",
+    "folder": "assets/images/Hana/",
+    "sprites": [
+        {
+            "name": "excited",
+            "file": "Hanaexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Hanafrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Hananervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Hananeutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Hanasmile.png"
+        },
+        {
+            "name": "mami-excited",
+            "file": "Hanamamiexcited.png"
+        },
+        {
+            "name": "mami-frown",
+            "file": "Hanamamifrown.png"
+        },
+        {
+            "name": "mami-nervous",
+            "file": "Hanamaminervous.png"
+        },
+        {
+            "name": "mami-neutral",
+            "file": "Hanamamineutral.png"
+        },
+        {
+            "name": "mami-smile",
+            "file": "Hanamamismile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

@@ -1,0 +1,35 @@
+{
+    "name": "Hatate",
+    "folder": "assets/images/Hatate/",
+    "sprites": [
+        {
+            "name": "apologetic",
+            "file": "Hatateapologetic.png"
+        },
+        {
+            "name": "blush",
+            "file": "Hatateblush.png"
+        },
+        {
+            "name": "excited",
+            "file": "Hatateexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Hatatefrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Hatatenervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Hatateneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Hatatesmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

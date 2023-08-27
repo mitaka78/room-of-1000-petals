@@ -1,0 +1,31 @@
+{
+    "name": "Alice",
+    "folder": "assets/images/Alice/",
+    "sprites": [
+        {
+            "name": "blush",
+            "file": "Aliceblush.png"
+        },
+        {
+            "name": "excited",
+            "file": "Aliceexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Alicefrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Alicenervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Aliceneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Alicesmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

@@ -1,0 +1,23 @@
+{
+    "dayNumber": "0",
+    "dayName": "Test Day",
+    "customers":
+    [
+        {
+            "name": "Aya",
+            "drink": "TestDrink"
+        },
+        {
+            "name": "Alice",
+            "drink": "CoolDrink"       
+        },
+        {
+            "name": "Marisa",
+            "drink": "TestDrink"       
+        },
+        {
+            "name": "Hatate",
+            "drink": "CoolDrink"
+        }
+    ]
+}

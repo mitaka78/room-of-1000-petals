@@ -1,0 +1,39 @@
+{
+    "name": "Doremy",
+    "folder": "assets/images/Doremy/",
+    "sprites": [
+        {
+            "name": "blob",
+            "file": "Doremyblob.png"
+        },
+        {
+            "name": "drunk",
+            "file": "Doremydrunk.png"
+        },
+        {
+            "name": "excited",
+            "file": "Doremyexcited.png"
+        },
+        {
+            "name": "flirty",
+            "file": "Doremyflirty.png"
+        },
+        {
+            "name": "frown",
+            "file": "Doremyfrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Doremynervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Doremyneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Doremysmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

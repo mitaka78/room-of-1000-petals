@@ -1,0 +1,19 @@
+{
+    "name": "Megumu",
+    "folder": "assets/images/Megumu/",
+    "sprites": [
+        {
+            "name": "frown",
+            "file": "Megumufrown.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Megumueutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Megumusmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

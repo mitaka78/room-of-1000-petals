@@ -1,0 +1,39 @@
+{
+    "name": "Mamizou",
+    "folder": "assets/images/Mamizou/",
+    "sprites": [
+        {
+            "name": "drunk",
+            "file": "Mamizoudrunk.png"
+        },
+        {
+            "name": "excited",
+            "file": "Mamizouexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Mamizoufrown.png"
+        },
+        {
+            "name": "laugh",
+            "file": "Mamizoulaugh.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Mamizounervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Mamizouneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Mamizousmile.png"
+        },
+        {
+            "name": "smug",
+            "file": "Mamizousmug.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

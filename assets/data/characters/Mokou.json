@@ -1,0 +1,27 @@
+{
+    "name": "Mokou",
+    "folder": "assets/images/Mokou/",
+    "sprites": [
+        {
+            "name": "excited",
+            "file": "Mokouexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Mokoufrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Mokounervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Mokouneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Mokousmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

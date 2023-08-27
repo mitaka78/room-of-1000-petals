@@ -1,0 +1,27 @@
+{
+    "name": "Kosuzu",
+    "folder": "assets/images/Kosuzu/",
+    "sprites": [
+        {
+            "name": "excited",
+            "file": "Kosuzuexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Kosuzufrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Kosuzunervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Kosuzuneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Kosuzusmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

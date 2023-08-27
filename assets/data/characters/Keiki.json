@@ -1,0 +1,27 @@
+{
+    "name": "Keiki",
+    "folder": "assets/images/Keiki/",
+    "sprites": [
+        {
+            "name": "excited",
+            "file": "Keikiexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Keikifrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Keikinervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Keikineutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Keikismile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

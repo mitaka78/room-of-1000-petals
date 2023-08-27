@@ -1,0 +1,27 @@
+{
+    "name": "Miko",
+    "folder": "assets/images/Miko/",
+    "sprites": [
+        {
+            "name": "frown",
+            "file": "Mikofrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Mikonervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Mikoneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Mikosmile.png"
+        },
+        {
+            "name": "tearful",
+            "file": "Mikotearful.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

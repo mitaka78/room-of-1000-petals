@@ -1,0 +1,35 @@
+{
+    "name": "Byakuren",
+    "folder": "assets/images/Byakuren/",
+    "sprites": [
+        {
+            "name": "blush",
+            "file": "Byakblush.png"
+        },
+        {
+            "name": "excited",
+            "file": "Byakexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Byakfrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Byaknervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Byakneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Byaksmile.tif"
+        },
+        {
+            "name": "tearful",
+            "file": "Byaktearful.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

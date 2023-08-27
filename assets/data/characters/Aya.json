@@ -1,0 +1,31 @@
+{
+    "name": "Aya",
+    "folder": "assets/images/Aya/",
+    "sprites": [
+        {
+            "name": "apologetic",
+            "file": "Ayaapologetic.png"
+        },
+        {
+            "name": "excited",
+            "file": "Ayaexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Ayafrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Ayanervous.png"
+        },
+        {
+            "name": "neutral",
+            "file": "Ayaneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Ayasmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}

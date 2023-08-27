@@ -1,0 +1,10 @@
+{
+    "name": "TestDrink",
+    "description": "A test drink",
+    "ingredients": [
+        "Beer: 2",
+        "Sake: 2"
+    ],
+    "style": 0,
+    "tags": ["Test"]
+}

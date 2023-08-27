@@ -1,0 +1,27 @@
+{
+    "name": "Rinnosuke",
+    "folder": "assets/images/Rinnosuke/",
+    "sprites": [
+        {
+            "name": "excited",
+            "file": "Kourinexcited.png"
+        },
+        {
+            "name": "frown",
+            "file": "Kourinfrown.png"
+        },
+        {
+            "name": "nervous",
+            "file": "Kourinnervous.png"
+        },
+        {
+            "name": "default",
+            "file": "Kourinneutral.png"
+        },
+        {
+            "name": "smile",
+            "file": "Kourinsmile.png"
+        }
+    ],
+    "scale": [1.2, 1.2]
+}
