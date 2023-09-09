@@ -14,6 +14,7 @@ typedef CustomerData =
 {
 	var name:String;
 	var drink:String;
+	var dialogue:String;
 	var ?wantsIce:Bool;
 	var ?wantsOptionalAlcohol:Bool;
 };
@@ -72,6 +73,8 @@ class Customer extends FlxSprite
 
 	var walking:Bool;
 
+	public var onWalkEnd:Void->Void;
+
 	public function walkTo(x:Float, y:Float, t:Float, ?WalkingIn:Bool = true)
 	{
 		walking = true;
@@ -81,6 +84,8 @@ class Customer extends FlxSprite
 			onComplete: _ ->
 			{
 				walking = false;
+				if (onWalkEnd != null)
+					onWalkEnd();
 				FlxTween.tween(this, {y: y}, .03);
 			}
 		});

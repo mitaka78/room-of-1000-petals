@@ -5,11 +5,13 @@
     [
         {
             "name": "Aya",
-            "drink": "TestDrink"
+            "drink": "TestDrink",
+            "dialogue": "assets/data/ayamsg.json"
         },
         {
             "name": "Alice",
-            "drink": "CoolDrink"       
+            "drink": "CoolDrink",
+            "dialogue": "assets/data/alicemsg.json"
         },
         {
             "name": "Marisa",

@@ -3,6 +3,7 @@ package;
 import barkeep.Customer;
 import barkeep.Day;
 import barkeep.DrinkSystem;
+import dialogue.DialogueBox;
 import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -34,6 +35,8 @@ class PlayState extends FlxState
 	var curStyle:DrinkStyle;
 	var curDrinkName:String;
 	var curCustName:String;
+
+	var dialogueBox:DialogueBox;
 
 	var day:Day;
 
@@ -159,7 +162,7 @@ class PlayState extends FlxState
 		// 	nextCustomer();
 		// }
 
-		if (FlxG.keys.justPressed.C)
+		if (FlxG.keys.justPressed.C && continueStuff)
 		{
 			makeDrink(getIngredients());
 			if (curDrinkName == wantedDrink.name)
@@ -176,7 +179,7 @@ class PlayState extends FlxState
 
 		if (!isOnBrewingScreen)
 		{
-			if (FlxG.mouse.overlaps(brewScreenOverlapSwitch))
+			if (FlxG.mouse.overlaps(brewScreenOverlapSwitch) && continueStuff)
 			{
 				isOnBrewingScreen = true;
 				FlxTween.cancelTweensOf(FlxG.camera);
@@ -185,7 +188,7 @@ class PlayState extends FlxState
 		}
 		else
 		{
-			if (FlxG.mouse.overlaps(serveScreenOverlapSwitch))
+			if (FlxG.mouse.overlaps(serveScreenOverlapSwitch) || !continueStuff)
 			{
 				isOnBrewingScreen = false;
 				FlxTween.cancelTweensOf(FlxG.camera);
@@ -369,8 +372,11 @@ class PlayState extends FlxState
 	}
 
 	var customerIndex:Int = 0;
+	var customerDialogue:String;
 
 	var shiftDone = false;
+
+	var continueStuff:Bool;
 
 	function nextCustomer()
 	{
@@ -380,7 +386,35 @@ class PlayState extends FlxState
 			return;
 		}
 
+		continueStuff = false;
+
 		customerIndex++;
+		if (day.customers[customerIndex].dialogue != null)
+		{
+			customerDialogue = day.customers[customerIndex].dialogue;
+			customer.onWalkEnd = () ->
+			{
+				if (dialogueBox == null)
+				{
+					dialogueBox = new DialogueBox(100, FlxG.height - 400, customerDialogue);
+					dialogueBox.onEnd = () ->
+					{
+						continueStuff = true;
+					}
+					add(dialogueBox);
+				}
+				else
+				{
+					dialogueBox.loadFromFile(customerDialogue);
+					dialogueBox.restart();
+				}
+			}
+		}
+		else
+		{
+			continueStuff = true;
+			customer.onWalkEnd = null;
+		}
 		curCustName = day.customers[customerIndex].name;
 		curDrinkName = "NoDrink";
 		curIngredients.clear();
@@ -396,6 +430,8 @@ class PlayState extends FlxState
 		}
 
 		customer.changeCharacter(curCustName);
+		customer.x = -customer.width;
+		customer.walkTo(customerDefaultPos.x, customerDefaultPos.y, 3);
 		trace(curCustName, wantedDrink);
 		// customer.x = -customer.width;
 	}
