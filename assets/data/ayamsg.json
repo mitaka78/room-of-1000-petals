@@ -1,1 +1,1 @@
-{"inkVersion":21,"root":[["^Hey. I'm AYA","\n","^Can I have a Test Drink?","\n","^Thanks.","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}
+{"inkVersion":21,"root":[["^Hey. I'm Aya.","\n","^I want a Test Drink.","\n","^Thanks","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"correct_drink":["^Tastes delicious.","\n","^Definetely coming back here tommorow.","\n","^Thanks, and see you.","\n","end",{"#f":1}],"incorrect_drink":["^Ew.","\n","^Tastes awful.","\n","^How incompetent of you.","\n","end",{"#f":1}],"#f":1}],"listDefs":{}}

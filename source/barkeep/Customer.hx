@@ -71,7 +71,7 @@ class Customer extends FlxSprite
 		changeSpriteState(data.default_sprite ?? "neutral");
 	}
 
-	var walking:Bool;
+	public var walking:Bool;
 
 	public var onWalkEnd:Void->Void;
 

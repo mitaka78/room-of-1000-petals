@@ -157,23 +157,28 @@ class PlayState extends FlxState
 			FlxG.resetState();
 		}
 
+		if (dialogueBox != null)
+			continueStuff = @:privateAccess dialogueBox.ended && !customer.walking;
+
 		// if (FlxG.keys.justPressed.N)
 		// {
 		// 	nextCustomer();
 		// }
-
+		trace(continueStuff);
 		if (FlxG.keys.justPressed.C && continueStuff)
 		{
 			makeDrink(getIngredients());
 			if (curDrinkName == wantedDrink.name)
 			{
 				trace("THANK YOU CORRECT DRINK");
-				nextCustomer();
+				dialogueBox.onEnd = nextCustomer;
+				dialogueBox.correctDrink();
 			}
 			else
 			{
 				trace("WRONG DRINK");
-				nextCustomer();
+				dialogueBox.onEnd = nextCustomer;
+				dialogueBox.incorrectDrink();
 			}
 		}
 
@@ -433,6 +438,8 @@ class PlayState extends FlxState
 		customer.x = -customer.width;
 		customer.walkTo(customerDefaultPos.x, customerDefaultPos.y, 3);
 		trace(curCustName, wantedDrink);
+		if (dialogueBox != null)
+			dialogueBox.onEnd = null;
 		// customer.x = -customer.width;
 	}
 }

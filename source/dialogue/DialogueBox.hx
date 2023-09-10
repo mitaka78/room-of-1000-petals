@@ -1,5 +1,6 @@
 package dialogue;
 
+import Type.ValueType;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.text.FlxTypeText;
@@ -8,8 +9,12 @@ import flixel.group.FlxSpriteGroup;
 import flixel.text.FlxText;
 import flixel.util.FlxAxes;
 import flixel.util.FlxColor;
+import haxe.Json;
+import ink.runtime.Path;
 import ink.runtime.Story;
 import lime.utils.Assets;
+
+using StringTools;
 
 class DialogueBox extends FlxSpriteGroup
 {
@@ -118,189 +123,54 @@ class DialogueBox extends FlxSpriteGroup
 		dialogueText.start(1 / 12);
 		finishedTalking = false;
 	}
-}
 
-class OldDialogueBox extends FlxSpriteGroup
-{
-	// Story object
-	public var s:Story;
+	// im so sorry for the fuckery inside these functions
 
-	// Sprites
-	public var box:FlxSprite;
-	public var nameText:FlxText;
-	public var dialogueText:FlxTypeText;
-	// FlxSpriteGroup doesn't support adding of anything that isn't FlxSprite or extends off of it
-	// So we need to store choiceButtons in an array instead of a group
-	// And add the choice sprites directly on without having a 'choice layer'
-	// Won't cause issues for the most part.
-	public var choiceButtons:Array<ChoiceButton>;
-
-	public function new(?x:Float, ?y:Float, ?file:String)
+	public function correctDrink()
 	{
-		super(x, y);
-		if (file != null)
-			loadFromFile(file);
-		choiceButtons = [];
-		createSprites();
-		// 0 X
-		// 1 Y
-		// 2 XY
-		bindExtFunctionsToInkEngine();
-	}
+		var exists = true;
 
-	function bindExtFunctionsToInkEngine()
-	{
-		s.BindExternalFunction3("addSprite", (tag:String, file:String, layer:String) ->
+		try
 		{
-			layer ?? layer = "midground";
-			var sprite = new FlxSprite(0, 0, file);
-			PlayState.instance.sprites[tag] = sprite;
-			switch (layer.toLowerCase())
-			{
-				case 'background', 'bg':
-					PlayState.instance.backgroundSprites.add(sprite);
-				case 'midground', 'mg':
-					PlayState.instance.midgroundSprites.add(sprite);
-				case 'foreground', 'fg':
-					PlayState.instance.foregroundSprites.add(sprite);
-				case 'front':
-					PlayState.instance.add(sprite);
-			}
-
-			return true;
-		});
-
-		s.BindExternalFunction1("removeSprite", (tag:String) ->
+			story.ContentAtPath(Path.createFromString("incorrect_drink"));
+		}
+		catch (e)
 		{
-			var sprite = PlayState.instance.sprites[tag];
-			// im lazy
-			PlayState.instance.backgroundSprites.remove(sprite);
-			PlayState.instance.midgroundSprites.remove(sprite);
-			PlayState.instance.foregroundSprites.remove(sprite);
-			PlayState.instance.remove(sprite);
-			return true;
-		});
+			exists = false;
+		}
 
-		s.BindExternalFunction3("moveSprite", (tag:String, x:Float, y:Float) ->
+		if (exists)
 		{
-			var sprites = PlayState.instance.sprites;
-			if (sprites.exists(tag) && sprites[tag] != null)
-			{
-				sprites[tag].setPosition(x, y);
-				return true;
-			}
-			return false;
-		});
-
-		s.BindExternalFunction2("centerSprite", (tag:String, axes:Int) ->
-		{
-			var sprites = PlayState.instance.sprites;
-			if (sprites.exists(tag) && sprites[tag] != null)
-			{
-				var sprite = sprites[tag];
-				switch (axes)
-				{
-					case 0:
-						sprite.screenCenter(X);
-					case 1:
-						sprite.screenCenter(Y);
-					case 2:
-						sprite.screenCenter(XY);
-				}
-
-				return true;
-			}
-			return false;
-		});
-
-		s.BindExternalFunction1("changeCustomerSprite", (name:String) ->
-		{
-			if (PlayState.instance.customer != null)
-			{
-				PlayState.instance.customer.changeSpriteState(name ?? "default");
-				return true;
-			}
-
-			return false;
-		});
-	}
-
-	public inline function loadFromFile(file:String)
-	{
-		return loadFromText(Assets.getText(file));
-	}
-
-	public inline function loadFromText(text:String)
-	{
-		s = new Story(text);
-		return this;
-	}
-
-	var currentName:String;
-
-	var cIndex:Int = 0;
-
-	public function dialogue()
-	{
-		var E = FlxG.keys.justPressed.ENTER;
-		var U = FlxG.keys.anyJustPressed([W, UP]);
-		var D = FlxG.keys.anyJustPressed([S, DOWN]);
-
-		if (s.canContinue)
-		{
-			if (E)
-			{
-				s.Continue();
-				trace(s.currentText);
-			}
+			story.ChoosePathString("correct_drink");
+			restart();
 		}
 		else
 		{
-			if (s.currentChoices.length > 0)
-			{
-				if (U)
-				{
-					cIndex++;
-					if (cIndex >= s.currentChoices.length)
-						cIndex = 0;
-				}
-				else if (D)
-				{
-					cIndex--;
-					if (cIndex < 0)
-						cIndex = s.currentChoices.length - 1;
-				}
-
-				if (E)
-				{
-					trace("chosechoice:", s.currentChoices[cIndex].text);
-					s.ChooseChoiceIndex(cIndex);
-				}
-			}
+			onEnd();
 		}
 	}
 
-	function createSprites()
+	public function incorrectDrink()
 	{
-		box = new FlxSprite().makeGraphic(Std.int(FlxG.width / 3), 240, FlxColor.GRAY);
-		box.screenCenter(X);
-		box.x -= box.width / 2;
-		box.y = FlxG.height - 300;
+		var exists = true;
 
-		dialogueText = new FlxTypeText(20, 20, Std.int(dialogueText.width - 14), "", 14);
+		try
+		{
+			story.ContentAtPath(Path.createFromString("incorrect_drink"));
+		}
+		catch (e)
+		{
+			exists = false;
+		}
 
-		add(box);
-		add(dialogueText);
-	}
-}
-
-class ChoiceButton extends FlxSpriteGroup
-{
-	public var box:FlxSprite;
-	public var choiceText:FlxText;
-
-	public function new(?x:Float, ?y:Float)
-	{
-		super(x, y);
+		if (exists)
+		{
+			story.ChoosePathString("incorrect_drink");
+			restart();
+		}
+		else
+		{
+			onEnd();
+		}
 	}
 }
